@@ -25,23 +25,56 @@ h1, h2, h3, h4, h5{
     padding: 0;
     text-decoration: none;
     list-style-type: none;
+    color: #000;
 }
 
 
 body{
     width: 100vw;
     height: 100vh;
+    overflow-x: hidden;
 }
 .nav{
     position: fixed;
     width: 100%;
     height: 70px;
     box-shadow: 0 0 6px rgba(0,0,0,.16);
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.568);
     padding: 0 var(--l-padding);
     display: flex;
     justify-content: space-between;
     z-index: 999;
+}
+.nav::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(https://source.unsplash.com/collection/536735);
+    background-size: cover;
+    object-fit: cover;
+    background-position: center;
+    z-index: -1;
+}
+.nav::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 0 0 6px rgba(0,0,0,.16);
+    background-color: rgba(255, 255, 255, 0.568);
+    width: 100vw;
+    height: inherit;
+    z-index: -1;
+}
+.main{
+    position: absolute;
+    top: 50vh;
+    left: 0;
+    width: 100vw;
+    z-index: 9999;
 }
 .brand{
     height: 100%;
@@ -73,9 +106,23 @@ body{
     border: 2px solid var(--primary);
     color: #000;
 }
-.container{
+.sect{
+    position: relative;
     width: 100%;
+    width: 100vw !important;
     height: 100vh;
+}
+.sect:not(.sect--header)::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* transform: translateX(-74px); */
+    width: 100%;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.568);
+
 }
 .bg{
     position: absolute;
@@ -84,10 +131,10 @@ body{
     object-fit: cover;
     z-index: -1;
 }
-.container--header{
+.sect--header{
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    height: 50vh;
 }
 .hero{
     position: relative;
@@ -121,4 +168,41 @@ body{
 }
 .btn--primary{
     background-color: var(--primary);
+}
+.sliderrr{
+    width: 80vw;
+    margin-left: 10vw;
+}
+.nav--gallery:before{
+    background: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.main--gallery{
+    top: 70px;
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    padding: 72px;
+}
+.main--gallery *{
+    border: transparent solid 1px;
+}
+.l-footer{
+    width: 100vw;
+    height: 70px;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: rgba(255, 255, 255, 0.568);
+    padding: 0 var(--l-padding);
+    z-index: 9999;
+}
+.icon{
+    padding-left: 32px;
 }
